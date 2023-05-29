@@ -1,0 +1,272 @@
+@use "base";
+
+main {
+  width: 100%;
+  padding: 1em;
+  margin: auto;
+}
+
+header {
+  color: base.$textColor;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+%bg-color {
+  background-color: base.$secondaryColor;
+}
+
+.display {
+  @extend %bg-color;
+  margin-bottom: 1em;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: base.$textColorDark;
+  }
+
+  svg {
+    color: base.$textGreen;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    &:hover {
+      color: base.$textWhite;
+      transition: 0.2s ease-in-out;
+    }
+  }
+}
+
+.details {
+  @extend %bg-color;
+  padding: 1em;
+
+  .char-length {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    p:nth-of-type(1) {
+      color: base.$textWhite;
+      text-transform: capitalize;
+    }
+
+    p:nth-of-type(2) {
+      color: base.$textGreen;
+      font-size: 2rem;
+    }
+  }
+
+  #pw-length {
+    accent-color: base.$textGreen;
+    width: 100%;
+    margin-bottom: 2.5em;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    background-color: base.$tertiaryColor;
+    outline: none;
+    opacity: 0.8;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: base.$textWhite;
+      cursor: grab;
+
+      &:hover {
+        border: 1px solid base.$textGreen;
+        background-color: base.$tertiaryColor;
+        -webkit-transition: 0.2s;
+        transition: all 0.2s;
+      }
+    }
+
+    &::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: base.$textWhite;
+      cursor: grab;
+    }
+  }
+
+  .checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.2em;
+    color: base.$textWhite;
+    margin-bottom: 2em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input[type="checkbox"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 1.6em;
+      height: 1.6em;
+      border: 0.15em solid base.$textWhite;
+      margin-right: 0.5em;
+      cursor: pointer;
+
+      &:hover {
+        border: 0.15em solid base.$textGreen;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    input:checked {
+      background-color: base.$textGreen;
+      position: relative;
+      border: 0.15em solid base.$textGreen;
+    }
+
+    input:checked::before {
+      content: "";
+      position: absolute;
+      background-color: transparent;
+      left: 5px;
+      top: 1px;
+      width: 5px;
+      height: 10px;
+      border: solid base.$primaryColor;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  .strength-wrapper {
+    background-color: base.$tertiaryColor;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    user-select: none;
+
+    p {
+      color: base.$textColorDark;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    span {
+      width: 0.5em;
+      height: 1.5em;
+      border: 2px solid base.$textWhite;
+      display: inline-block;
+      margin-left: 0.5em;
+    }
+
+    .strength-bars {
+      display: flex;
+      align-items: center;
+      color: base.$textWhite;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      gap: 0.3em;
+    }
+  }
+
+  .btn {
+    background-color: base.$textGreen;
+    padding: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 1em;
+    user-select: none;
+    border: 1px solid base.$textGreen;
+
+    &:hover {
+      background-color: transparent;
+      border: 1px solid base.$textGreen;
+      color: base.$textGreen;
+      transition: 0.2s ease-in-out;
+    }
+
+    &:hover button {
+      color: base.$textGreen;
+      transition: 0.2s ease-in-out;
+    }
+
+    button {
+      outline: none;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    svg {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  min-width: 200px;
+  background-color: base.$tertiaryColor;
+  padding: 0.5em 1em;
+  position: absolute;
+  bottom: -100%;
+  left: 1em;
+  color: base.$textWhite;
+  margin: auto;
+  animation: slideUp 1s ease-in-out forwards;
+
+  @keyframes slideUp {
+    from {
+      bottom: -50%;
+    }
+    to {
+      bottom: 1em;
+    }
+  }
+
+  span {
+    color: base.$textGreen;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    max-width: 450px;
+  }
+}
