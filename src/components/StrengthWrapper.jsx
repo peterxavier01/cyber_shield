@@ -8,7 +8,7 @@ const StrengthWrapper = ({ strengthLevel, bgColor }) => {
         <p>Strength</p>
       </div>
       <div className="strength-bars">
-        <div>{strengthLevel}</div>
+        <p className="strength-level">{strengthLevel}</p>
         <div>
           <span
             style={{

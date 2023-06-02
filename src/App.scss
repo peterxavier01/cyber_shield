@@ -162,6 +162,14 @@ header {
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
+
+    label {
+      font-size: 0.9rem;
+
+      @media screen and (min-width: 768px) {
+        font-size: 1rem;
+      }
+    }
   }
 
   .strength-wrapper {
@@ -170,13 +178,27 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-bottom: 1em;
     user-select: none;
 
-    p {
+    div:first-child p {
       color: base.$textColorDark;
       text-transform: uppercase;
       font-weight: 600;
+      font-size: 0.75rem;
+
+      @media screen and (min-width: 768px) {
+        font-size: 1rem;
+      }
+    }
+
+    .strength-level {
+      font-size: 0.8rem;
+
+      @media screen and (min-width: 768px) {
+        font-size: 1rem;
+      }
     }
 
     span {
@@ -184,7 +206,11 @@ header {
       height: 1.5em;
       border: 2px solid base.$textWhite;
       display: inline-block;
-      margin-left: 0.5em;
+      margin-left: 0.4em;
+
+      @media screen and (min-width: 768px) {
+        margin-left: 0.5em;
+      }
     }
 
     .strength-bars {
